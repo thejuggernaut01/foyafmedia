@@ -1,0 +1,293 @@
+:root {
+  --primaryColor: rgb(5, 5, 58);
+  --secondaryColor: rgb(199, 26, 26);
+  --courseColor: rgb(56, 5, 56);
+}
+
+.footer {
+  /* min-height: 65vh; */
+  background: var(--primaryColor);
+}
+
+.footer--container {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 30px 60px;
+  color: wheat;
+}
+
+.footer--1 .about h1 {
+  font-size: 32px;
+  font-weight: bold;
+  padding-bottom: 20px;
+}
+
+.footer--1 .about p {
+  padding-right: 50px;
+  font-size: 18px;
+}
+
+.foot {
+  display: flex;
+}
+
+.footer--2 .resources {
+  width: 300px;
+}
+
+.footer--2 .resources h1 {
+  padding-bottom: 15px;
+  font-size: 1.5rem;
+}
+
+.footer--2 .resources ul {
+  padding-left: 22px;
+}
+
+.footer--2 .resources li {
+  list-style-type: square;
+  color: var(--secondaryColor);
+  font-size: 19px;
+}
+
+.footer--2 .resources p {
+  font-size: 16px;
+  padding-bottom: 5px;
+  color: wheat;
+}
+
+.footer--2 .resources p:hover {
+  color: var(--secondaryColor);
+}
+
+.footer--3 .address {
+  padding-left: 30px;
+  width: 400px;
+}
+
+.footer--3 .address h1 {
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-top: 2px;
+  font-size: 1.5rem;
+}
+
+.footer--3 .address p {
+  font-size: 16px;
+  padding-bottom: 15px;
+}
+
+.location p {
+  padding-right: 100px;
+}
+
+.location,
+.phone,
+.mail,
+.work {
+  display: flex;
+}
+
+.location i,
+.phone i,
+.mail i,
+.work i {
+  padding-top: 4px;
+  padding-right: 7px;
+}
+
+.move:hover {
+  position: relative;
+  animation: move 1s ease-in;
+  color: var(--secondaryColor);
+}
+
+@keyframes move {
+  0% {
+    left: 5px;
+  }
+
+  50% {
+    left: 2.5px;
+  }
+
+  75% {
+    left: 1px;
+  }
+
+  100% {
+    left: 0px;
+  }
+}
+
+.fa-brands {
+  margin: 10px;
+  padding: 10px;
+  background: rgb(85, 85, 173);
+}
+
+.fa-brands:hover {
+  background: var(--secondaryColor);
+}
+
+hr {
+  width: 90%;
+  margin-left: 65px;
+  margin-top: 60px;
+}
+
+.footer--footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 90px 0 30px;
+}
+
+.foo--1 {
+  font-size: 14px;
+  color: wheat;
+  padding-left: 50px;
+}
+
+.foo--2 {
+  text-align: center;
+  padding-bottom: 10px;
+  font-size: 14px;
+  color: wheat;
+  padding-right: 30px;
+}
+
+.foo--1 span {
+  color: var(--secondaryColor);
+}
+
+/* -------------- FOOTER MOBILE VIEW ---------------- */
+
+@media screen and (max-width: 768px) {
+  .footer {
+    height: 100%;
+  }
+
+  .footer--container {
+    display: block;
+    padding: 70px 30px;
+  }
+
+  .foot {
+    display: block;
+  }
+
+  .footer--1 .about h1,
+  .footer--2 .resources h1 {
+    padding-bottom: 1px;
+  }
+
+  .footer--3 .address {
+    padding-left: 5px;
+    font-size: 1.5rem;
+  }
+
+  .move:hover {
+    position: relative;
+    animation: move 1s ease-in;
+  }
+
+  @keyframes move {
+    0% {
+      left: 8px;
+    }
+
+    50% {
+      left: 4px;
+    }
+
+    75% {
+      left: 2px;
+    }
+
+    100% {
+      left: 0px;
+    }
+  }
+
+  hr {
+    width: 90%;
+    margin-top: 10px;
+    margin-left: 25px;
+  }
+
+  .footer--footer {
+    display: block;
+  }
+
+  .foo--1 {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  .foo--2 {
+    text-align: center;
+  }
+}
+
+@media (max-width: 880px) {
+  .footer--2 .resources {
+    padding-right: 40px;
+  }
+
+  .footer--3 .address {
+    padding-right: 40px;
+  }
+}
+
+@media (max-width: 1260px) {
+  .footer--container {
+    flex-wrap: wrap;
+    padding: 20px 30px;
+    padding-bottom: 10px;
+  }
+
+  .foot {
+    width: 100%;
+  }
+
+  .footer--2 {
+    width: 30%;
+    margin-left: 25px;
+  }
+
+  .footer--1 .about {
+    padding-bottom: 20px;
+  }
+
+  .footer--1 .about p {
+    font-size: 18px;
+  }
+
+  hr {
+    width: 90%;
+    margin-top: 30px;
+    margin-left: 39px;
+  }
+
+  .footer--2 .resources {
+    margin-right: 100px;
+  }
+
+  .footer--3 .address {
+    padding-bottom: 1px;
+  }
+
+  .footer--footer {
+    padding: 20px 40px 0 40px;
+  }
+
+  .foo--1 {
+    padding-left: 20px;
+  }
+
+  .foo--2 {
+    text-align: center;
+    padding-bottom: 30px;
+    color: wheat;
+  }
+}

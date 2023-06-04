@@ -1,0 +1,21 @@
+Sign up check: if email already exist 
+    --> display error message
+
+user dashboard -->
+    all events -->
+    users events
+
+when user is logged in --> 
+    replace events with all events --> 
+    change signIn/logIn with log out
+
+firebase database -->
+    when user create events: event details would be stored using username as end api endpoint -->
+    create a main events that displaces event displayed by all users
+
+add payment platform 
+
+generate qr code when user pays for ticket
+send purchase details to user email with qr code
+
+check sign up & log in error message: crate & display error message in accordance to the error occured
