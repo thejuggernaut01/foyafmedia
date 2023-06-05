@@ -12,11 +12,10 @@ const CartPage = () => {
       eventCost: "",
     },
   ]);
-  console.log(event);
 
   const { eventId } = useParams();
-  const eventsRef = collection(db, "events");
   // create event cart
+  const eventsRef = collection(db, "events");
 
   const updateCart = () => {};
 
@@ -39,7 +38,7 @@ const CartPage = () => {
     };
 
     fetchEvent();
-  }, []);
+  }, [eventId, eventsRef]);
 
   return (
     <div className="container mx-auto p-4">

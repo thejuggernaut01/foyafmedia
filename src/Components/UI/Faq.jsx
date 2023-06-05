@@ -32,8 +32,7 @@ const App = () => {
             ))}
             <p className="text-lg">
               If you still can’t find an answer to your question, please give
-              our Customer Service guys a call on +2348186543308 or drop us an
-              email at jason@afrisplug.com
+              our Customer Service guys a call on
             </p>
           </section>
         </div>
@@ -41,5 +40,6 @@ const App = () => {
     </>
   );
 };
+// +2348186543308 or drop us an email at jason@afrisplug.com
 
 export default App;
