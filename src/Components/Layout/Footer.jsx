@@ -119,7 +119,7 @@ const Footer = (props) => {
               <div className={classes.location}>
                 <h6 className="w-8 h-6 mr-2 text-red-700">{location}</h6>
                 <p className={classes.move}>
-                  185, Ijesha Road, Surulere, Lagos State, Nigeria
+                  175, Ijesha Road, Surulere, Lagos State, Nigeria
                 </p>
               </div>
               <div className="phone flex">
