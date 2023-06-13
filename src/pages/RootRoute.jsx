@@ -9,7 +9,7 @@ const RootRoute = () => {
         {" "}
         <Header />
         <Outlet />
-        <Footer />
+        {/* <Footer /> */}
       </div>
     </>
   );

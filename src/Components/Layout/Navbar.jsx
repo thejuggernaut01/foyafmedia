@@ -20,7 +20,6 @@ const Navbar = () => {
     try {
       await logout();
       navigate("/log-in");
-      setNav(!nav);
     } catch (error) {
       console.log(error);
       setError("failed to log out");
@@ -30,12 +29,6 @@ const Navbar = () => {
   return (
     <div className="flex justify-around items-center py-4 text-white">
       <div className="flex justify-around">
-        {/* <Link
-          to={"/"}
-          className={`w-full text-2xl font-bold text-[#fdffff] no-underline cursor-pointer`}
-        >
-          FOYAFMEDIA
-        </Link> */}
         <Link
           to={"/"}
           className="text-white no-underline cursor-pointer text-2xl font-bold"
@@ -72,7 +65,7 @@ const Navbar = () => {
           {currentUser ? (
             <button
               type="button"
-              className="rounded-full border pr-3 pl-3 hover:scale-110"
+              className="rounded-full border border-white pr-3 pl-3 hover:scale-110"
               onClick={handleLogout}
             >
               <Link to={"user"} className={classes.btn}>
@@ -82,7 +75,7 @@ const Navbar = () => {
           ) : (
             <button
               type="button"
-              className="rounded-full border pr-3 pl-3 hover:scale-110"
+              className="rounded-full border border-white pr-3 pl-3 hover:scale-110"
             >
               <Link to={"user"} className={classes.btn}>
                 Join Us

@@ -1,9 +1,9 @@
 import React, { useRef, useState, useContext } from "react";
-// import { Form, Button, Card, Alert } from "react-bootstrap";
 import { AuthContext } from "../../store/AuthContext";
 import { Form, Link, useNavigate } from "react-router-dom";
 import { db } from "../../firebase";
 import { collection, addDoc } from "firebase/firestore";
+import AuthLoader from "../UI/AuthLoader";
 
 export default function SignUp() {
   const [error, setError] = useState("");
@@ -20,6 +20,8 @@ export default function SignUp() {
 
   // create collection for users
   const usersCollection = collection(db, "users");
+  const emailRegex =
+    /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@(gmail|yahoo|icloud|hotmail|outlook|aol|protonmail|zoho)+\.(com|net|org|edu|info|co|gov)$/;
 
   const submitHandler = async (e) => {
     e.preventDefault();
@@ -40,6 +42,13 @@ export default function SignUp() {
       return setError("Password must be at least 6 characters long");
     }
 
+    if (
+      !emailRegex.test(emailRef.current.value) ||
+      emailRef.current.value.trim() === ""
+    ) {
+      return setError("Enter a valid email address");
+    }
+
     try {
       setError("");
       setLoading(true);
@@ -51,7 +60,8 @@ export default function SignUp() {
         emailAddress: emailRef.current.value,
       });
 
-      navigate("/dashboard");
+      // navigate("/dashboard");
+      navigate("/log-in");
     } catch (error) {
       setError("Failed to create an account!");
       console.log(error.message);
@@ -62,7 +72,7 @@ export default function SignUp() {
   return (
     <>
       <div className="text-center w-100 mt-20 mb-20">
-        <div className="inline-block border border-gray-600 rounded-md">
+        <div className="inline-block border border-gray-600 rounded-md mb-2">
           {error && (
             <p className="bg-red-400 pt-1 pb-1 rounded-t-md">{error}</p>
           )}
@@ -135,16 +145,16 @@ export default function SignUp() {
 
             <button
               disabled={loading}
-              className="mt-3 border border-blue-600 bg-blue-600 text-white rounded-md w-full mb-4 pt-1 pb-1"
+              className="mt-3 border border-blue-600 bg-blue-600 text-white rounded-md w-full mb-4 pt-2 pb-2"
               type="submit"
             >
-              Sign up
+              {loading ? <AuthLoader /> : "Sign up"}
             </button>
           </Form>
         </div>
         <div className="text-center">
           Already have an account?{" "}
-          <Link to={"/log-in"} className="underline text-blue-600">
+          <Link to={"/log-in"} className="no-underline text-blue-600">
             Log in
           </Link>
         </div>

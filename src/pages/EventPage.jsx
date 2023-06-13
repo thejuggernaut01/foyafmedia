@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import EventsList from "../Components/Events/EventsList";
+import Loader from "../Components/UI/Loader";
 
 import { db } from "../firebase";
 import { collection, getDocs } from "firebase/firestore";
@@ -20,19 +21,10 @@ const EventPage = () => {
   return (
     <>
       <div className="text-center ">
-        <h1>All Events</h1>
-        <hr style={{ width: "100%" }} className="mt-0 pl-10 pr-10" />
+        <h1 className="text-3xl pt-3 pb-10">All Events</h1>
+        {/* <hr className="mt-0 w-fit" /> */}
 
-        {events.length === 0 ? (
-          <div className="my-4 border border-red-500 inline-block">
-            <div>
-              <p className="border-r-2 text-2xl px-2 bg-red-400">x</p>
-              <p className="text-xl px-2">No Events</p>
-            </div>
-          </div>
-        ) : (
-          <EventsList events={events} />
-        )}
+        {events.length === 0 ? <Loader /> : <EventsList events={events} />}
       </div>
     </>
   );

@@ -3,6 +3,7 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
+  sendEmailVerification,
   sendPasswordResetEmail,
 } from "firebase/auth";
 
@@ -14,13 +15,26 @@ export const AuthContext = React.createContext();
 export function AuthProvider({ children }) {
   const [currentUser, setCurrentUser] = useState("");
   const [loading, setLoading] = useState(true);
+  const [logInError, setLogInError] = useState(false);
 
-  const signUp = (email, password) => {
-    return createUserWithEmailAndPassword(auth, email, password);
+  const signUp = async (email, password) => {
+    // return createUserWithEmailAndPassword(auth, email, password);
+    const result = await createUserWithEmailAndPassword(auth, email, password);
+
+    // Send email verification
+    await sendEmailVerification(result.user);
   };
 
-  const login = (email, password) => {
-    return signInWithEmailAndPassword(auth, email, password);
+  const login = async (email, password) => {
+    // return signInWithEmailAndPassword(auth, email, password);
+
+    const result = await signInWithEmailAndPassword(auth, email, password);
+    console.log(result);
+
+    if (!result.user.emailVerified) {
+      console.log("Please verify your email before accessing the dashboard.");
+      setLogInError(true);
+    }
   };
 
   const logout = () => {
@@ -45,6 +59,8 @@ export function AuthProvider({ children }) {
     login,
     logout,
     resetPassword,
+    logInError,
+    setLogInError,
   };
 
   return (

@@ -39,6 +39,7 @@ const router = createBrowserRouter([
           { path: ":eventId/checkout", element: <Checkout /> },
         ],
       },
+      { path: "checkout", element: <Checkout /> },
       { path: "create-event", element: <CreateEventPage /> },
       { path: "faq", element: <FaqPage /> },
       { path: "contact-us", element: <ContactUsPage /> },
