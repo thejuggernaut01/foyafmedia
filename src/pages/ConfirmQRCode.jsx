@@ -16,7 +16,7 @@ export default function ConfirmQRCode() {
           (result) => console.log("decoded qr code:", result),
           {
             returnDetailedScanResult: true,
-            highlightScanRegion: true,
+            highlightScanRegion: scanRegion ? true : false,
           }
         );
       } else {
@@ -28,36 +28,14 @@ export default function ConfirmQRCode() {
     });
 
   const scanQRCode = () => {
-    // setScanRegion((prevState) => !prevState);
+    setScanRegion((prevState) => !prevState);
     qrScanner.start();
   };
 
   const closeQRCode = () => {
     qrScanner.stop();
-    // setScanRegion((prevState) => !prevState);
+    setScanRegion((prevState) => !prevState);
   };
-
-  // const closeQRCode = () => {
-  //   QrScanner.hasCamera()
-  //     .then((hasCamera) => {
-  //       if (hasCamera) {
-  //         const videoElem = document.getElementById("videoElement");
-  //         videoElem.disablePictureInPicture = true;
-
-  //         let qrScanner = new QrScanner(
-  //           videoElem,
-  //           (result) => console.log("decoded qr code:", result),
-  //           { returnDetailedScanResult: true }
-  //         );
-  //         qrScanner.stop();
-  //       } else {
-  //         console.error("No camera found");
-  //       }
-  //     })
-  //     .catch((err) => {
-  //       console.error("Error:", err);
-  //     });
-  // };
 
   return (
     <>
