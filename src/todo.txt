@@ -1,21 +1,25 @@
-Sign up check: if email already exist 
-    --> display error message
-
 user dashboard -->
     all events -->
     users events
-
-when user is logged in --> 
-    replace events with all events --> 
-    change signIn/logIn with log out
 
 firebase database -->
     when user create events: event details would be stored using username as end api endpoint -->
     create a main events that displaces event displayed by all users
 
-add payment platform 
+generate qr code when user pays for ticket -->
+    create a link to scan qrcode -> only admin can access this
+    
+    qr code comes with reference number. when admin scan the qr code
+        admin get access to info embedded in qr code
+            - admin input the ref num into a field, and click check it goes through successOrder collection and find a document with such ref then returns true/false
+            - the cart is then updated with used
+            - so when ref num is inputted it checks whether user/not. if used run no1 else return used
 
-generate qr code when user pays for ticket
+                
+
+
+// when a user signup and their email (@foyafmedia.com) -> make admin
+
 send purchase details to user email with qr code
 
 check sign up & log in error message: crate & display error message in accordance to the error occured

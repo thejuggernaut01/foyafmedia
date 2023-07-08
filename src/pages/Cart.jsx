@@ -33,6 +33,7 @@ const CartPage = () => {
     }
   };
 
+  // Update Cart
   const updateCart = async () => {
     try {
       // Getting the document

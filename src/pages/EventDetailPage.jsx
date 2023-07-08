@@ -24,6 +24,7 @@ export default function EventDetailPage() {
   });
   const { eventId } = useParams();
   const eventsRef = collection(db, "events");
+
   const cartCollection = collection(db, "cart");
 
   const buyTicket = async () => {
@@ -97,7 +98,7 @@ export default function EventDetailPage() {
 
               {event.eventOrganizer && (
                 <div className="text-left border border-gray-500 rounded-lg block mx-auto w-[80%]">
-                  <h4 className="px-3 pt-1">Event Oranizers</h4>
+                  <h4 className="px-3 pt-1">Event Organizers</h4>
                   <hr className="block mx-auto w-full mt-0" />
                   <p className="px-3 text-xl">{event.eventOrganizer}</p>
                 </div>

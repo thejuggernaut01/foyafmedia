@@ -17,6 +17,7 @@ import EventDetailPage from "./pages/EventDetailPage";
 import EventRoute from "./pages/EventRoute";
 import Checkout from "./pages/Checkout";
 import Cart from "./pages/Cart";
+import ConfirmQRCode from "./pages/ConfirmQRCode";
 
 const router = createBrowserRouter([
   {
@@ -43,6 +44,7 @@ const router = createBrowserRouter([
       { path: "create-event", element: <CreateEventPage /> },
       { path: "faq", element: <FaqPage /> },
       { path: "contact-us", element: <ContactUsPage /> },
+      { path: "confirm-qr-code", element: <ConfirmQRCode /> },
       {
         path: "dashboard",
         element: (
@@ -52,7 +54,7 @@ const router = createBrowserRouter([
               style={{ minHeight: "100vh" }}
             >
               <div className="w-100" style={{ maxWidth: "400px" }}>
-                <Dashboard />
+                {/* <Dashboard /> */}
               </div>
             </Container>
           </AuthProvider>

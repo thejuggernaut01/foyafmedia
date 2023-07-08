@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 
 import { Button, Card, Alert } from "react-bootstrap";
-import "bootstrap/dist/css/bootstrap.min.css";
+// import "bootstrap/dist/css/bootstrap.min.css";
 import { AuthContext } from "../../store/AuthContext";
 import { Link, useNavigate, Navigate } from "react-router-dom";
 

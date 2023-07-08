@@ -75,7 +75,9 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <hr />
+
+      <hr className="text-white" />
+
       <div className={classes["footer--footer"]}>
         <div className={classes["foo--1"]}>
           &copy;{currentDate} Foyafmedia, designed by <span>OVO Designs</span>

@@ -1,10 +1,17 @@
 import { useState } from "react";
+import { QRCodeSVG } from "qrcode.react";
 
 import classes from "./EventDetailPage.module.css";
 import { PaystackButton } from "react-paystack";
 
 export default function Checkout() {
   const [checkoutDetails, setCheckoutDetails] = useState([]);
+
+  const generateQrCode = () => {};
+
+  const sendEventDetailsToUserEmail = () => {
+    generateQrCode();
+  };
 
   const config = {
     reference: new Date().getTime().toString(),
@@ -15,6 +22,8 @@ export default function Checkout() {
 
   const handlePaystackSuccessAction = (reference) => {
     // Implementation for whatever you want to do with reference and after success call.
+    sendEventDetailsToUserEmail();
+
     console.log(reference);
   };
 
@@ -192,10 +201,11 @@ export default function Checkout() {
             </tr>
           </tbody>
         </table>
-        {/* <button className={`${classes.btn} mt-4`}>
-          Pay With Paystack
-        </button> */}
-        <PaystackButton className={`${classes.btn} mt-4`} {...componentProps} />
+
+        <PaystackButton
+          className={`${classes.btn} mt-4 mb-4`}
+          {...componentProps}
+        />
       </div>
     </>
   );

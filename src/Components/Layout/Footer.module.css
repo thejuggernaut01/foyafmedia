@@ -62,7 +62,6 @@
 
 .footer--3 .address {
   padding-left: 30px;
-  width: 400px;
 }
 
 .footer--3 .address h1 {
@@ -130,11 +129,11 @@
   background: var(--secondaryColor);
 }
 
-hr {
+/* hr {
   width: 90%;
   margin-left: 65px;
   margin-top: 60px;
-}
+} */
 
 .footer--footer {
   display: flex;
@@ -209,11 +208,11 @@ hr {
     }
   }
 
-  hr {
+  /* hr {
     width: 90%;
     margin-top: 10px;
     margin-left: 25px;
-  }
+  } */
 
   .footer--footer {
     display: block;
@@ -263,11 +262,11 @@ hr {
     font-size: 18px;
   }
 
-  hr {
+  /* hr {
     width: 90%;
     margin-top: 30px;
     margin-left: 39px;
-  }
+  } */
 
   .footer--2 .resources {
     margin-right: 100px;

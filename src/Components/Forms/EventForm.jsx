@@ -51,6 +51,7 @@ const EventForm = (props) => {
           eventCost,
           eventId: eventTitle.split(" ").join("-").toLowerCase(),
         });
+
         navigate("/");
       } catch (error) {
         console.log(error);
