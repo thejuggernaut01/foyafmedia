@@ -29,11 +29,29 @@ export default function EventDetailPage() {
 
   const buyTicket = async () => {
     if (currentUser) {
+      // if (
+      //   query(
+      //     cartCollection,
+      //     where(
+      //       "eventTitle",
+      //       "==",
+      //       event.eventTitle && "user",
+      //       "==",
+      //       currentUser.email
+      //     )
+      //   )
+      // ) {
+      //   navigate("cart");
+      //   return;
+      // }
       try {
         await addDoc(cartCollection, {
           eventTitle: event.eventTitle,
           eventCost: event.eventCost,
           eventQty,
+          eventVenue: event.eventVenue,
+          eventTime: event.eventTime,
+          eventDate: event.eventDate,
           user: currentUser.email,
         });
         navigate("cart");
@@ -72,7 +90,7 @@ export default function EventDetailPage() {
   return (
     <>
       {loading ? (
-        <div className="flex justify-center items-center pt-5">
+        <div className="flex justify-center items-center pt-5 mb-10">
           <Loader />
         </div>
       ) : (
@@ -174,10 +192,6 @@ export default function EventDetailPage() {
               </div>
 
               <div className="space-x-10">
-                <Link to={"/"} className={`${classes.btn}`}>
-                  {" "}
-                  To Calender
-                </Link>
                 <p onClick={buyTicket} className={`${classes.btn}`}>
                   Buy Ticket
                 </p>

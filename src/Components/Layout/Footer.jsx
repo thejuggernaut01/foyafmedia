@@ -63,7 +63,7 @@ const Footer = () => {
               </div>
               <div className="mail flex">
                 <h6 className="w-6 h-6 text-red-700 mr-2">{mail}</h6>
-                <p className={classes.move}>support@foyafmedia.com</p>
+                <p className={classes.move}>foyafmedia@gmail.com</p>
               </div>
               <div className="icons">
                 <i className="fa-brands fa-twitter"></i>

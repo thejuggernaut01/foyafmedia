@@ -23,8 +23,8 @@ export default function Login() {
       await ctx.login(emailRef.current.value, passwordRef.current.value);
       console.log(ctx.logInError);
 
-      if (ctx.logInError) {
-        navigate("/dashboard");
+      if (!ctx.logInError) {
+        navigate("/");
       }
     } catch (error) {
       setError("Failed to Log in!");

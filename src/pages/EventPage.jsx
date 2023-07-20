@@ -24,7 +24,13 @@ const EventPage = () => {
         <h1 className="text-3xl pt-3 pb-10">All Events</h1>
         {/* <hr className="mt-0 w-fit" /> */}
 
-        {events.length === 0 ? <Loader /> : <EventsList events={events} />}
+        {events.length === 0 ? (
+          <div className="mb-10">
+            <Loader />
+          </div>
+        ) : (
+          <EventsList events={events} />
+        )}
       </div>
     </>
   );

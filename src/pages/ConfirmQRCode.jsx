@@ -1,8 +1,9 @@
 import { useState } from "react";
+
 import QrScanner from "qr-scanner";
 
 export default function ConfirmQRCode() {
-  const [scanRegion, setScanRegion] = useState(false);
+  const [scannedResult, setScannedResult] = useState([]);
   let qrScanner;
 
   QrScanner.hasCamera()
@@ -13,10 +14,9 @@ export default function ConfirmQRCode() {
 
         qrScanner = new QrScanner(
           videoElem,
-          (result) => console.log("decoded qr code:", result),
+          (result) => setScannedResult(result),
           {
             returnDetailedScanResult: true,
-            highlightScanRegion: scanRegion ? true : false,
           }
         );
       } else {
@@ -28,19 +28,17 @@ export default function ConfirmQRCode() {
     });
 
   const scanQRCode = () => {
-    setScanRegion((prevState) => !prevState);
     qrScanner.start();
   };
 
   const closeQRCode = () => {
     qrScanner.stop();
-    setScanRegion((prevState) => !prevState);
   };
 
   return (
     <>
-      <section>
-        <h2>Check QR Code Validity</h2>
+      <section className="mt-10 mb-6">
+        <h2 className="text-center pb-5 text-2xl">Check QR Code Validity</h2>
 
         <aside>
           <div className="px-10">
@@ -49,10 +47,13 @@ export default function ConfirmQRCode() {
               id="videoElement"
             ></video>
           </div>
-          <div>
+
+          <div className="flex justify-center items-center space-x-20 pt-5">
             <button onClick={scanQRCode}>Open Scanner</button>
             <button onClick={closeQRCode}>Close Scanner</button>
           </div>
+
+          <div>{scannedResult}</div>
         </aside>
       </section>
     </>
