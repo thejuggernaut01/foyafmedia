@@ -14,10 +14,10 @@ export default function ConfirmQRCode() {
 
         qrScanner = new QrScanner(
           videoElem,
-          (result) => setScannedResult(result),
-          {
-            returnDetailedScanResult: true,
-          }
+          (result) => setScannedResult(result)
+          // {
+          //   returnDetailedScanResult: true,
+          // }
         );
       } else {
         console.error("No camera found");
