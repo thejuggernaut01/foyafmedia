@@ -29,21 +29,6 @@ export default function EventDetailPage() {
 
   const buyTicket = async () => {
     if (currentUser) {
-      // if (
-      //   query(
-      //     cartCollection,
-      //     where(
-      //       "eventTitle",
-      //       "==",
-      //       event.eventTitle && "user",
-      //       "==",
-      //       currentUser.email
-      //     )
-      //   )
-      // ) {
-      //   navigate("cart");
-      //   return;
-      // }
       try {
         await addDoc(cartCollection, {
           eventTitle: event.eventTitle,
