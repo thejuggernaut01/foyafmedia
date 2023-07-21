@@ -44,22 +44,18 @@ export default function ConfirmQRCode() {
     const querySnapshot = await getDocs(checkoutQuery);
 
     if (!querySnapshot.empty) {
-      setIsValid("Valid");
+      const documentData = querySnapshot.docs[0].data();
+      if (documentData.QRCodeUsed === false) {
+        setIsValid("Valid");
+      } else {
+        setIsValid("Not valid");
+      }
 
-      querySnapshot.forEach(async (doc) => {
-        const documentData = doc.data();
-        const documentId = doc.id;
-
-        // Update the document
-        const newData = { ...documentData, QRCodeUsed: true };
-        const docRef = doc(db, checkoutCollection, documentId);
-        await updateDoc(docRef, newData);
-      });
-    } else {
-      setIsValid("Not valid");
+      const documentId = querySnapshot.docs[0].id;
+      const newData = { ...documentData, QRCodeUsed: true };
+      const docRef = doc(db, checkoutCollection, documentId);
+      await updateDoc(docRef, newData);
     }
-
-    qrScanner.stop();
   };
 
   const closeQRCode = () => {
@@ -84,9 +80,7 @@ export default function ConfirmQRCode() {
             <button onClick={closeQRCode}>Close Scanner</button>
           </div>
 
-          <div>
-            <h3>{`The QR Code is ${isValid}`}</h3>
-          </div>
+          <div>{isValid && <h3>{`The QR Code is ${isValid}`}</h3>}</div>
         </aside>
       </section>
     </>

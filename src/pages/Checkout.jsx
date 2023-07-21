@@ -81,46 +81,42 @@ export default function Checkout() {
         });
 
         // generate qr code
-        try {
-          const result = await QRCode.toDataURL(reference.trans);
+        const result = await QRCode.toDataURL(reference.trans);
 
-          // Send Email
-          const smtpConfig = {
-            Host: process.env.REACT_APP_MAIL_HOST,
-            Username: process.env.REACT_APP_MAIL_USERNAME,
-            Password: process.env.REACT_APP_MAIL_PASSWORD,
-            To: `${billingEmail}`,
-            From: "foyafmedia@gmail.com",
-            Subject: "Confirmation: Your Event Ticket Purchase",
-            Body: `<body style="padding:0; margin: 0;background: #f5f6f8" data-new-gr-c-s-check-loaded="14.1091.0" data-gr-ext-installed="" data-new-gr-c-s-loaded="14.1091.0"><table style="height: 100%; width: 100%; background-color: #f5f6f8;" align="center"><tbody><tr><td valign="top" id="dbody" data-version="2.31" style="width: 100%; height: 100%; padding-top: 50px; padding-bottom: 50px; background-color: #f5f6f8;"><!--[if (gte mso 9)|(IE)]><table align="center" style="max-width:692px" width="692" cellpadding="0" cellspacing="0" border="0"><tr><td valign="top"><![endif]--><!--[if (gte mso 9)|(IE)]><table align="center" style="max-width:640px" width="640" cellpadding="0" cellspacing="0" border="0"><tr><td valign="top"><![endif]--><!--[if (gte mso 9)|(IE)]><table align="center" style="max-width:600px" width="600" cellpadding="0" cellspacing="0" border="0"><tr><td valign="top"><![endif]--><!--[if (gte mso 9)|(IE)]><table align="center" style="max-width:600px" width="600" cellpadding="0" cellspacing="0" border="0"><tr><td valign="top"><![endif]--><!--[if (gte mso 9)|(IE)]><table align="center" style="max-width:600px" width="600" cellpadding="0" cellspacing="0" border="0"><tr><td valign="top"><![endif]--><table class="layer_1" align="center" border="0" cellpadding="0" cellspacing="0" style="max-width: 692px; box-sizing: border-box; width: 100%; margin: 0px auto;"><tbody><tr><td class="drow" valign="top" align="center" style="background-color: #f9fafb; box-sizing: border-box; font-size: 0px; text-align: center;"><!--[if (gte mso 9)|(IE)]><table width="100%" align="center" cellpadding="0" cellspacing="0" border="0"><tr><td valign="top"><![endif]--><div class="layer_2" style="max-width: 100%; display: inline-block; vertical-align: top; width: 100%;"><table border="0" cellspacing="0" class="edcontent" style="border-collapse: collapse;width:100%"><tbody><tr><td valign="top" class="edtext" style="padding: 28px; text-align: left; color: #5f5f5f; font-size: 15px; font-family: &quot;Open Sans&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; word-break: break-word; direction: ltr; box-sizing: border-box;"><p class="text-center" style="line-height: 1.25em; text-align: center; margin: 0px; padding: 0px;"><span style="font-size: 28px;">Order Details and Payment Confirmation</span></p><p style="margin: 0px; padding: 0px;">
+        // Send Email
+        const smtpConfig = {
+          Host: process.env.REACT_APP_MAIL_HOST,
+          Username: process.env.REACT_APP_MAIL_USERNAME,
+          Password: process.env.REACT_APP_MAIL_PASSWORD,
+          To: `${billingEmail}`,
+          From: "foyafmedia@gmail.com",
+          Subject: "Confirmation: Your Event Ticket Purchase",
+          Body: `<body style="padding:0; margin: 0;background: #f5f6f8" data-new-gr-c-s-check-loaded="14.1091.0" data-gr-ext-installed="" data-new-gr-c-s-loaded="14.1091.0"><table style="height: 100%; width: 100%; background-color: #f5f6f8;" align="center"><tbody><tr><td valign="top" id="dbody" data-version="2.31" style="width: 100%; height: 100%; padding-top: 50px; padding-bottom: 50px; background-color: #f5f6f8;"><!--[if (gte mso 9)|(IE)]><table align="center" style="max-width:692px" width="692" cellpadding="0" cellspacing="0" border="0"><tr><td valign="top"><![endif]--><!--[if (gte mso 9)|(IE)]><table align="center" style="max-width:640px" width="640" cellpadding="0" cellspacing="0" border="0"><tr><td valign="top"><![endif]--><!--[if (gte mso 9)|(IE)]><table align="center" style="max-width:600px" width="600" cellpadding="0" cellspacing="0" border="0"><tr><td valign="top"><![endif]--><!--[if (gte mso 9)|(IE)]><table align="center" style="max-width:600px" width="600" cellpadding="0" cellspacing="0" border="0"><tr><td valign="top"><![endif]--><!--[if (gte mso 9)|(IE)]><table align="center" style="max-width:600px" width="600" cellpadding="0" cellspacing="0" border="0"><tr><td valign="top"><![endif]--><table class="layer_1" align="center" border="0" cellpadding="0" cellspacing="0" style="max-width: 692px; box-sizing: border-box; width: 100%; margin: 0px auto;"><tbody><tr><td class="drow" valign="top" align="center" style="background-color: #f9fafb; box-sizing: border-box; font-size: 0px; text-align: center;"><!--[if (gte mso 9)|(IE)]><table width="100%" align="center" cellpadding="0" cellspacing="0" border="0"><tr><td valign="top"><![endif]--><div class="layer_2" style="max-width: 100%; display: inline-block; vertical-align: top; width: 100%;"><table border="0" cellspacing="0" class="edcontent" style="border-collapse: collapse;width:100%"><tbody><tr><td valign="top" class="edtext" style="padding: 28px; text-align: left; color: #5f5f5f; font-size: 15px; font-family: &quot;Open Sans&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; word-break: break-word; direction: ltr; box-sizing: border-box;"><p class="text-center" style="line-height: 1.25em; text-align: center; margin: 0px; padding: 0px;"><span style="font-size: 28px;">Order Details and Payment Confirmation</span></p><p style="margin: 0px; padding: 0px;">
 </p><p class="text-center" style="line-height: 1.25em; text-align: center; margin: 0px; padding: 0px;"><br></p>
 <p style="line-height: 1.25em; margin: 0px; padding: 0px;"><br></p><p style="line-height: 1.25em; margin: 0px; padding: 0px;">Dear ${billingName},</p>
 <p class="text-center" style="line-height: 1.25em; text-align: center; margin: 0px; padding: 0px;">Thank you for purchasing a ticket for ${
-              cartData.eventTitle
-            }! We're excited to have you join us for this special event. Below are the details of your purchase:</p><p class="text-center" style="line-height: 1.25em; text-align: center; margin: 0px; padding: 0px;"><br></p></td></tr></tbody></table></div><!--[if (gte mso 9)|(IE)]></td></tr></table><![endif]--></td></tr><tr><td class="drow" valign="top" align="center" style="background-color: #ffffff; box-sizing: border-box; font-size: 0px; text-align: center;"><!--[if (gte mso 9)|(IE)]><table width="100%" align="center" cellpadding="0" cellspacing="0" border="0"><tr><td valign="top"><![endif]--><div class="layer_2" style="max-width: 100%; display: inline-block; vertical-align: top; width: 100%;"><table border="0" cellspacing="0" class="edcontent" style="border-collapse: collapse;width:100%"><tbody><tr><td valign="top" class="edtext" style="padding: 32px; text-align: left; color: #5f5f5f; font-size: 15px; font-family: &quot;Open Sans&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; word-break: break-word; direction: ltr; box-sizing: border-box;"><p class="style2 text-center" style="line-height: 1.75em; text-align: center; margin: 0px; padding: 0px; color: #000000; font-size: 26px; font-family: &quot;Open Sans&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;"><span style="font-size: 20px;">Event Details</span></p><p style="margin: 0px; padding: 0px;">Event: ${
-              cartData.eventTitle
-            }<br>Date: ${cartData.eventDate}<br>Time: ${
-              cartData.eventTime
-            }<br>Venue: ${
-              cartData.eventVenue
-            }</p><p style="margin: 0px; padding: 0px;">Cost:&nbsp;${
-              cartData.eventCost
-            }<br>Quantity:&nbsp;${cartData.eventQty}<br>Total Amount Paid: ${
-              cartData.eventQty * cartData.eventCost
-            }</p><p style="margin: 0px; padding: 0px;">&nbsp;</p><p style="margin: 0px; padding: 0px;"><br></p><p class="text-center" style="text-align: center; margin: 0px; padding: 0px;"><span style="font-size: 18px;"><strong>Payment Details</strong></span></p><p style="margin: 0px; padding: 0px;">Payment Method: Paystack<br>Transaction ID: ${
-              reference.trans
-            }<br>Payment Date: ${year}-${month}-${day}</p><div style="margin: 0px; padding: 0px;"><img src=${result} alt=${
-              cartData.eventTitle + "QR Code"
-            } />
+            cartData.eventTitle
+          }! We're excited to have you join us for this special event. Below are the details of your purchase:</p><p class="text-center" style="line-height: 1.25em; text-align: center; margin: 0px; padding: 0px;"><br></p></td></tr></tbody></table></div><!--[if (gte mso 9)|(IE)]></td></tr></table><![endif]--></td></tr><tr><td class="drow" valign="top" align="center" style="background-color: #ffffff; box-sizing: border-box; font-size: 0px; text-align: center;"><!--[if (gte mso 9)|(IE)]><table width="100%" align="center" cellpadding="0" cellspacing="0" border="0"><tr><td valign="top"><![endif]--><div class="layer_2" style="max-width: 100%; display: inline-block; vertical-align: top; width: 100%;"><table border="0" cellspacing="0" class="edcontent" style="border-collapse: collapse;width:100%"><tbody><tr><td valign="top" class="edtext" style="padding: 32px; text-align: left; color: #5f5f5f; font-size: 15px; font-family: &quot;Open Sans&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; word-break: break-word; direction: ltr; box-sizing: border-box;"><p class="style2 text-center" style="line-height: 1.75em; text-align: center; margin: 0px; padding: 0px; color: #000000; font-size: 26px; font-family: &quot;Open Sans&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;"><span style="font-size: 20px;">Event Details</span></p><p style="margin: 0px; padding: 0px;">Event: ${
+            cartData.eventTitle
+          }<br>Date: ${cartData.eventDate}<br>Time: ${
+            cartData.eventTime
+          }<br>Venue: ${
+            cartData.eventVenue
+          }</p><p style="margin: 0px; padding: 0px;">Cost:&nbsp;${
+            cartData.eventCost
+          }<br>Quantity:&nbsp;${cartData.eventQty}<br>Total Amount Paid: ${
+            cartData.eventQty * cartData.eventCost
+          }</p><p style="margin: 0px; padding: 0px;">&nbsp;</p><p style="margin: 0px; padding: 0px;"><br></p><p class="text-center" style="text-align: center; margin: 0px; padding: 0px;"><span style="font-size: 18px;"><strong>Payment Details</strong></span></p><p style="margin: 0px; padding: 0px;">Payment Method: Paystack<br>Transaction ID: ${
+            reference.trans
+          }<br>Payment Date: ${year}-${month}-${day}</p><div style="margin: 0px; padding: 0px;"><img src='${result}' alt='${
+            cartData.eventTitle + " QR Code"
+          }' />
 </div><p style="margin: 0px; padding: 0px;"><br></p><p style="margin: 0px; padding: 0px;"><br></p><p style="margin: 0px; padding: 0px;">If you have any questions or need further assistance, feel free to contact our support team at foyafmedia@gmail.com or by phone at +234-7026336278. We're here to help!</p><p style="margin: 0px; padding: 0px;"><br></p>
 <p style="margin: 0px; padding: 0px;">Thank you again for your purchase, and we look forward to seeing you at the event!</p><p style="margin: 0px; padding: 0px;"><br></p>
 <p style="margin: 0px; padding: 0px;">Best regards,&nbsp;</p><p style="margin: 0px; padding: 0px;">Foyafmedia</p><p style="margin: 0px; padding: 0px;"><br></p></td></tr></tbody></table></div><!--[if (gte mso 9)|(IE)]></td></tr></table><![endif]--></td></tr><tr><td class="drow" valign="top" align="center" style="background-color: #f5f6f8; box-sizing: border-box; font-size: 0px; text-align: center;"><!--[if (gte mso 9)|(IE)]><table width="100%" align="center" cellpadding="0" cellspacing="0" border="0"><tr><td valign="top"><![endif]--><div class="layer_2" style="max-width: 100%; display: inline-block; vertical-align: top; width: 100%;"><table border="0" cellspacing="0" class="edcontent" style="border-collapse: collapse;width:100%"><tbody><tr><td valign="top" class="edtext" style="padding: 20px; text-align: left; color: #5f5f5f; font-size: 15px; font-family: &quot;Open Sans&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; word-break: break-word; direction: ltr; box-sizing: border-box;"><p class="text-center" style="line-height: 1.75em; text-align: center; margin: 0px; padding: 0px;"><span style="font-size: 11px;">If you no longer wish to receive mail from us, you can <a href="{unsubscribe}" style="color: #5457ff; text-decoration: none;">unsubscribe</a></span><br><span style="font-size: 11px;">foyafmedia@gmail.com</span></p></td></tr></tbody></table></div><!--[if (gte mso 9)|(IE)]></td></tr></table><![endif]--></td></tr></tbody></table><!--[if (gte mso 9)|(IE)]></td></tr></table><![endif]--><!--[if (gte mso 9)|(IE)]></td></tr></table><![endif]--><!--[if (gte mso 9)|(IE)]></td></tr></table><![endif]--></td></tr></tbody></table></body>`,
-          };
+        };
 
-          Email.send(smtpConfig);
-        } catch (err) {
-          console.error(err);
-        }
+        await Email.send(smtpConfig);
 
         navigate("/");
       } catch (error) {

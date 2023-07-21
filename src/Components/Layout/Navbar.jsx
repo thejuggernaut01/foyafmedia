@@ -42,15 +42,16 @@ const Navbar = () => {
               CREATE EVENT
             </Link>
           </li>
-          {(currentUser === process.env.REACT_APP_ADMIN_1 ||
-            currentUser === process.env.REACT_APP_ADMIN_2 ||
-            currentUser === process.env.REACT_APP_ADMIN_3) && (
-            <li className="p-2">
-              <Link className={classes.link} to="/confirm-qr-code">
-                Confirm QR Code
-              </Link>
-            </li>
-          )}
+          {currentUser &&
+            (currentUser.email === "adewaleayool2002@gmail.com" ||
+              currentUser.email === "foyafmedia@gmail.com" ||
+              currentUser.email === "vwedeefenaire0@gmail.com") && (
+              <li className="p-2">
+                <Link className={classes.link} to="/confirm-qr-code">
+                  Confirm QR Code
+                </Link>
+              </li>
+            )}
           <li className="p-2">
             <Link className={classes.link} to="faq">
               FAQ
@@ -111,19 +112,20 @@ const Navbar = () => {
             CREATE EVENT
           </Link>
         </li>
-        {(currentUser === process.env.REACT_APP_ADMIN_1 ||
-          currentUser === process.env.REACT_APP_ADMIN_2 ||
-          currentUser === process.env.REACT_APP_ADMIN_3) && (
-          <li className="p-3 border-b border-gray-600">
-            <Link
-              className={classes.link}
-              to="create-event"
-              onClick={handleNav}
-            >
-              Confirm QR Code
-            </Link>
-          </li>
-        )}
+        {currentUser &&
+          (currentUser.email === "adewaleayool2002@gmail.com" ||
+            currentUser.email === "foyafmedia@gmail.com" ||
+            currentUser.email === "vwedeefenaire0@gmail.com") && (
+            <li className="p-3 border-b border-gray-600">
+              <Link
+                className={classes.link}
+                to="create-event"
+                onClick={handleNav}
+              >
+                Confirm QR Code
+              </Link>
+            </li>
+          )}
         <li className="p-3 border-b border-gray-600">
           <Link className={classes.link} to="faq" onClick={handleNav}>
             FAQ
