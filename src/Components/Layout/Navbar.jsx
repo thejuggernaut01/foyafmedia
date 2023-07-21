@@ -119,7 +119,7 @@ const Navbar = () => {
             <li className="p-3 border-b border-gray-600">
               <Link
                 className={classes.link}
-                to="create-event"
+                to="/confirm-qr-code"
                 onClick={handleNav}
               >
                 Confirm QR Code
