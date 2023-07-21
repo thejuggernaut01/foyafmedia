@@ -21,8 +21,6 @@ const day = String(currentDate.getDate()).padStart(2, "0");
 export default function Checkout() {
   const [cartData, setcartData] = useState([]);
 
-  const [qrImageUrl, setQrImageUrl] = useState("");
-
   const [billingName, setBillingName] = useState("");
   const [billingPhone, setBillingPhone] = useState("");
   const [billingEmail, setBillingEmail] = useState("");

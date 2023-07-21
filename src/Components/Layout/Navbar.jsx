@@ -42,10 +42,12 @@ const Navbar = () => {
               CREATE EVENT
             </Link>
           </li>
-          {currentUser && (
+          {(currentUser === process.env.REACT_APP_ADMIN_1 ||
+            currentUser === process.env.REACT_APP_ADMIN_2 ||
+            currentUser === process.env.REACT_APP_ADMIN_3) && (
             <li className="p-2">
-              <Link className={classes.link} to="create-event">
-                MY EVENTS
+              <Link className={classes.link} to="/confirm-qr-code">
+                Confirm QR Code
               </Link>
             </li>
           )}
@@ -109,14 +111,16 @@ const Navbar = () => {
             CREATE EVENT
           </Link>
         </li>
-        {currentUser && (
+        {(currentUser === process.env.REACT_APP_ADMIN_1 ||
+          currentUser === process.env.REACT_APP_ADMIN_2 ||
+          currentUser === process.env.REACT_APP_ADMIN_3) && (
           <li className="p-3 border-b border-gray-600">
             <Link
               className={classes.link}
               to="create-event"
               onClick={handleNav}
             >
-              MY EVENTS
+              Confirm QR Code
             </Link>
           </li>
         )}
